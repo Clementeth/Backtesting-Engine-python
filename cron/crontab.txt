@@ -1,0 +1,34 @@
+# crontab.txt
+# =========================================================
+# Daily report cron configuration (Feature 6)
+# =========================================================
+# This file documents the cron job used to generate
+# daily financial reports at a fixed time.
+#
+# The actual cron job must be installed on the VM using:
+#   crontab -e
+#
+# Cron syntax:
+# minute hour day_of_month month day_of_week command
+#
+# ---------------------------------------------------------
+# Run every day at 20:00 (VM local time)
+# ---------------------------------------------------------
+#
+# 0 20 * * * cd /ABSOLUTE/PATH/TO/PROJECT && \
+#     ./.venv/bin/python cron/daily_report.py \
+#     >> cron/cron.log 2>&1
+#
+# Notes:
+# - Replace /ABSOLUTE/PATH/TO/PROJECT with the real path
+#   (e.g. /home/user/Python-Git-Linux-for-Finance)
+# - The virtual environment must exist at .venv/
+# - If needed, verify the interpreter with:
+#     which python
+# - Output is logged to cron/cron.log for debugging
+#
+# The script generates daily reports in:
+#   cron/data/
+#
+# Each run generates reports for approximately
+# the last 30 trading days.
